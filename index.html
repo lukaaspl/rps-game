@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Rock, Paper and Scissors</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="scores">
+            <div class="score">
+                <span class="player-name">Player</span> score
+                <span class="player-score">0</span>
+            </div>
+
+            <div class="score">
+                Computer score
+                <span class="computer-score">0</span>
+            </div>
+        </div>
+        <header>
+            <img src="./assets/header.png" alt="">
+            <h1>Rock, Paper and Scissors</h1>
+            <h2>Let the game begin!</h2>
+        </header>
+        <div class="game">
+            <div class="intro">
+                <form class="intro-content">
+                    <input type="text" id="username" autocomplete="off" required title="">
+                    <label>
+                        <span>Username</span>
+                    </label>
+                    <i class="fas fa-user-circle user-icon"></i>
+                    <button type="submit">
+                        <i class="fas fa-chevron-circle-right"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="game-content fadeOut">
+                <h1>Game is here</h1>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

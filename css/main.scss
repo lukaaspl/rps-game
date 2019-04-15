@@ -1,0 +1,217 @@
+$containerPadding: 20px;
+
+// color palette
+$black: #000000;
+$violet: #3d2645;
+$raspberry: #832161;
+$pink: #da4167;
+$white: #f0eff4;
+
+// basics
+$font: 'Poppins',
+sans-serif;
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: $font;
+    font-size: 10px;
+    height: 100vh;
+    overflow: hidden;
+    background-color: $white;
+}
+
+.container {
+    position: absolute;
+    left: $containerPadding;
+    right: $containerPadding;
+    top: $containerPadding;
+    bottom: $containerPadding;
+    background-color: $raspberry;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20%;
+    font-size: 3rem;
+    color: $white;
+    transform: translateY(-40px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+
+    &.fadeIn {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+    }
+}
+
+.score>span[class$="score"] {
+    text-align: center;
+    display: block;
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+
+header {
+    text-align: center;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    img {
+        position: absolute;
+        width: 300px;
+        top: 0;
+        transform: translateY(-60%) rotate(-15deg);
+    }
+
+    h1 {
+        font-size: 4.5rem;
+        color: $pink;
+        text-shadow: 0 0 5px $violet;
+    }
+
+    h2 {
+        font-size: 3.5rem;
+        color: $white;
+        transform: translate(40%, -20px);
+    }
+}
+
+.game {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 15vh;
+}
+
+div.fadeOut {
+    transform: scale(.7);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.intro {
+    transition: .5s;
+}
+
+.intro-content {
+    position: relative;
+    width: 100%;
+    min-width: 400px;
+    height: 100px;
+    overflow: hidden;
+    transition: transform .5s, opacity .4s;
+
+    input {
+        width: 100%;
+        height: 100%;
+        background: none;
+        padding: 50px 50px 10px;
+        font-size: 3.5rem;
+        text-align: center;
+        border: none;
+        color: $white;
+        font-family: $font;
+        outline: none;
+
+        &:focus+label span,
+        &:valid+label span {
+            color: $pink;
+            font-size: 2.5rem;
+            transform: translateY(-50px);
+        }
+
+        &:focus+label::before,
+        &:valid+label::before {
+            transform: translateX(0);
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        border-bottom: 2px solid $pink;
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -2px;
+            width: 100%;
+            height: 100%;
+            border-bottom: 2px solid $white;
+            transform: translateX(-100%);
+            transition: .3s ease-in;
+        }
+
+        span {
+            position: absolute;
+            text-align: center;
+            width: 100%;
+            bottom: 0;
+            font-size: 3.5rem;
+            transform: translateY(0);
+            color: rgb(192, 192, 192);
+            transition: .3s;
+        }
+    }
+
+    .user-icon,
+    button {
+        position: absolute;
+        color: $pink;
+        bottom: 10px;
+    }
+
+    .user-icon {
+        left: 0;
+        font-size: 3.5rem;
+        pointer-events: none;
+    }
+
+    button {
+        right: 0;
+        border: none;
+        background: none;
+        outline: none;
+        cursor: pointer;
+        transition: color .3s;
+
+        &:hover {
+            color: $white;
+        }
+
+        i {
+            font-size: 3.5rem;
+        }
+    }
+
+
+}
+
+.game-content {
+    transition: .5s;
+}

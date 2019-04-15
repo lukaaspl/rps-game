@@ -1,0 +1,249 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: 10px;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #f0eff4;
+}
+
+.container {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  top: 20px;
+  bottom: 20px;
+  background-color: #832161;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.scores {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 20%;
+  font-size: 3rem;
+  color: #f0eff4;
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.scores.fadeIn {
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  opacity: 1;
+  pointer-events: all;
+}
+
+.score > span[class$="score"] {
+  text-align: center;
+  display: block;
+  font-size: 3.5rem;
+  font-weight: bold;
+}
+
+header {
+  text-align: center;
+  height: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+}
+
+header img {
+  position: absolute;
+  width: 300px;
+  top: 0;
+  -webkit-transform: translateY(-60%) rotate(-15deg);
+          transform: translateY(-60%) rotate(-15deg);
+}
+
+header h1 {
+  font-size: 4.5rem;
+  color: #da4167;
+  text-shadow: 0 0 5px #3d2645;
+}
+
+header h2 {
+  font-size: 3.5rem;
+  color: #f0eff4;
+  -webkit-transform: translate(40%, -20px);
+          transform: translate(40%, -20px);
+}
+
+.game {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-bottom: 15vh;
+}
+
+div.fadeOut {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.intro {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.intro-content {
+  position: relative;
+  width: 100%;
+  min-width: 400px;
+  height: 100px;
+  overflow: hidden;
+  -webkit-transition: opacity .4s, -webkit-transform .5s;
+  transition: opacity .4s, -webkit-transform .5s;
+  transition: transform .5s, opacity .4s;
+  transition: transform .5s, opacity .4s, -webkit-transform .5s;
+}
+
+.intro-content input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  padding: 50px 50px 10px;
+  font-size: 3.5rem;
+  text-align: center;
+  border: none;
+  color: #f0eff4;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+
+.intro-content input:focus + label span,
+.intro-content input:valid + label span {
+  color: #da4167;
+  font-size: 2.5rem;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
+}
+
+.intro-content input:focus + label::before,
+.intro-content input:valid + label::before {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+}
+
+.intro-content label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-bottom: 2px solid #da4167;
+}
+
+.intro-content label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 100%;
+  border-bottom: 2px solid #f0eff4;
+  -webkit-transform: translateX(-100%);
+          transform: translateX(-100%);
+  -webkit-transition: .3s ease-in;
+  transition: .3s ease-in;
+}
+
+.intro-content label span {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 0;
+  font-size: 3.5rem;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+  color: silver;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.intro-content .user-icon,
+.intro-content button {
+  position: absolute;
+  color: #da4167;
+  bottom: 10px;
+}
+
+.intro-content .user-icon {
+  left: 0;
+  font-size: 3.5rem;
+  pointer-events: none;
+}
+
+.intro-content button {
+  right: 0;
+  border: none;
+  background: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: color .3s;
+  transition: color .3s;
+}
+
+.intro-content button:hover {
+  color: #f0eff4;
+}
+
+.intro-content button i {
+  font-size: 3.5rem;
+}
+
+.game-content {
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+/*# sourceMappingURL=main.css.map */
