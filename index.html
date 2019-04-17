@@ -13,7 +13,7 @@
 
 <body>
     <div class="container">
-        <div class="scores">
+        <div class="scores fadedOut">
             <div class="score">
                 <span class="player-name">Player</span> score
                 <span class="player-score">0</span>
@@ -42,8 +42,24 @@
                     </button>
                 </form>
             </div>
-            <div class="game-content fadeOut">
-                <h1>Game is here</h1>
+            <div class="game-content fadedOut">
+                <div class="hands">
+                    <div class="hand player-hand">
+                        <img src="./assets/rock.png" alt="player hand">
+                    </div>
+                    <div class="game-result">
+                        <h2 id="details"></h2>
+                        <h1 id="result">Pick Your hand!</h1>
+                    </div>
+                    <div class="hand computer-hand">
+                        <img src="./assets/rock.png" alt="player hand">
+                    </div>
+                </div>
+                <div class="options">
+                    <button data-option="rock">Rock</button>
+                    <button data-option="paper">Paper</button>
+                    <button data-option="scissors">Scissors</button>
+                </div>
             </div>
         </div>
     </div>

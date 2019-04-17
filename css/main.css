@@ -42,22 +42,11 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 20%;
+  height: 20vh;
   font-size: 3rem;
   color: #f0eff4;
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
-  opacity: 0;
-  pointer-events: none;
-  -webkit-transition: .5s;
-  transition: .5s;
-}
-
-.scores.fadeIn {
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-  opacity: 1;
-  pointer-events: all;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .score > span[class$="score"] {
@@ -69,7 +58,7 @@ body {
 
 header {
   text-align: center;
-  height: 20%;
+  height: 25vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,31 +97,38 @@ header h2 {
 }
 
 .game {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-bottom: 15vh;
 }
 
-div.fadeOut {
-  -webkit-transform: scale(0.7);
-          transform: scale(0.7);
+div.fadedOut {
+  -webkit-transform: translateY(-40px);
+          transform: translateY(-40px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+div.scaledOut {
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
   opacity: 0;
   pointer-events: none;
 }
 
 .intro {
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .intro-content {
@@ -141,10 +137,8 @@ div.fadeOut {
   min-width: 400px;
   height: 100px;
   overflow: hidden;
-  -webkit-transition: opacity .4s, -webkit-transform .5s;
-  transition: opacity .4s, -webkit-transform .5s;
-  transition: transform .5s, opacity .4s;
-  transition: transform .5s, opacity .4s, -webkit-transform .5s;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
 .intro-content input {
@@ -194,8 +188,8 @@ div.fadeOut {
   border-bottom: 2px solid #f0eff4;
   -webkit-transform: translateX(-100%);
           transform: translateX(-100%);
-  -webkit-transition: .3s ease-in;
-  transition: .3s ease-in;
+  -webkit-transition: 0.3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .intro-content label span {
@@ -207,8 +201,8 @@ div.fadeOut {
   -webkit-transform: translateY(0);
           transform: translateY(0);
   color: silver;
-  -webkit-transition: .3s;
-  transition: .3s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
 }
 
 .intro-content .user-icon,
@@ -230,8 +224,8 @@ div.fadeOut {
   background: none;
   outline: none;
   cursor: pointer;
-  -webkit-transition: color .3s;
-  transition: color .3s;
+  -webkit-transition: color 0.3s;
+  transition: color 0.3s;
 }
 
 .intro-content button:hover {
@@ -243,7 +237,220 @@ div.fadeOut {
 }
 
 .game-content {
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+.hands {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hands .player-hand img {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.hands .player-hand img.shaked {
+  -webkit-animation: shakePlayerHand 2s ease-in-out;
+          animation: shakePlayerHand 2s ease-in-out;
+}
+
+.hands .computer-hand img.shaked {
+  -webkit-animation: shakeComputerHand 2s ease-in-out;
+          animation: shakeComputerHand 2s ease-in-out;
+}
+
+@-webkit-keyframes shakePlayerHand {
+  17% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  33% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  66% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+  83% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+}
+
+@keyframes shakePlayerHand {
+  17% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  33% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+  50% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  66% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+  83% {
+    -webkit-transform: rotateY(180deg) translateY(-30px);
+            transform: rotateY(180deg) translateY(-30px);
+  }
+  100% {
+    -webkit-transform: rotateY(180deg) translateY(0);
+            transform: rotateY(180deg) translateY(0);
+  }
+}
+
+@-webkit-keyframes shakeComputerHand {
+  17% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  33% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  66% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  83% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+@keyframes shakeComputerHand {
+  17% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  33% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  50% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  66% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+  83% {
+    -webkit-transform: translateY(-30px);
+            transform: translateY(-30px);
+  }
+  100% {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+  }
+}
+
+.game-result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #3d2645;
+  width: 230px;
+  height: 150px;
+  margin: 0 10px;
+  padding: 20px 10px;
+  text-align: center;
+  -webkit-transform: translateY(-80px);
+          transform: translateY(-80px);
+  border-radius: 5px;
+  background-color: #da4167;
+  color: #3d2645;
+  -webkit-box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.game-result h1 {
+  font-size: 3.5rem;
+  color: #f0eff4;
+}
+
+.game-result h2 {
+  font-size: 2rem;
+  word-spacing: 1px;
+  text-transform: capitalize;
+}
+
+.game-result h2 span {
+  text-transform: none;
+}
+
+.options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.options button {
+  background-color: #3d2645;
+  color: #f0eff4;
+  border: 2px solid #3d2645;
+  border-radius: 5px;
+  font-size: 3rem;
+  padding: 10px 25px;
+  margin: 0 10px;
+  cursor: pointer;
+  -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  outline: none;
+}
+
+.options button:focus {
+  border-color: #da4167;
+}
+
+.options button:hover {
+  background-color: #da4167;
+  border-color: #da4167;
 }
 /*# sourceMappingURL=main.css.map */
