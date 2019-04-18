@@ -12,8 +12,14 @@ body {
   font-family: "Poppins", sans-serif;
   font-size: 10px;
   height: 100vh;
-  overflow: hidden;
   background-color: #f0eff4;
+}
+
+@media screen and (max-width: 768px) {
+  html,
+  body {
+    font-size: 8px;
+  }
 }
 
 .container {
@@ -31,6 +37,25 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  overflow-x: hidden;
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
 }
 
 .scores {
@@ -47,6 +72,26 @@ body {
   color: #f0eff4;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  text-align: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .scores {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 434px) {
+  .scores {
+    font-size: 2rem;
+  }
+}
+
+.score {
+  padding: 20px 10px;
 }
 
 .score > span[class$="score"] {
@@ -79,8 +124,21 @@ header img {
   position: absolute;
   width: 300px;
   top: 0;
-  -webkit-transform: translateY(-60%) rotate(-15deg);
-          transform: translateY(-60%) rotate(-15deg);
+  -webkit-transform: translateY(-40%) rotate(-15deg);
+          transform: translateY(-40%) rotate(-15deg);
+  z-index: 1;
+}
+
+@media screen and (max-width: 768px), (max-height: 900px) {
+  header img {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 520px), (max-height: 700px) {
+  header img {
+    width: 150px;
+  }
 }
 
 header h1 {
@@ -89,11 +147,26 @@ header h1 {
   text-shadow: 0 0 5px #3d2645;
 }
 
+@media screen and (max-width: 520px) {
+  header h1 {
+    font-size: 4rem;
+    line-height: .9;
+  }
+}
+
 header h2 {
   font-size: 3.5rem;
   color: #f0eff4;
   -webkit-transform: translate(40%, -20px);
           transform: translate(40%, -20px);
+}
+
+@media screen and (max-width: 520px) {
+  header h2 {
+    font-size: 3rem;
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
 }
 
 .game {
@@ -134,7 +207,6 @@ div.scaledOut {
 .intro-content {
   position: relative;
   width: 100%;
-  min-width: 400px;
   height: 100px;
   overflow: hidden;
   -webkit-transition: 0.5s;
@@ -251,6 +323,18 @@ div.scaledOut {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+@media screen and (max-width: 520px) {
+  .hands .hand img {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .hands .hand img {
+    width: 210px;
+  }
 }
 
 .hands .player-hand img {
@@ -420,6 +504,29 @@ div.scaledOut {
   text-transform: none;
 }
 
+@media screen and (max-width: 768px) {
+  .game-result {
+    position: absolute;
+    z-index: -1;
+  }
+}
+
+@media screen and (max-width: 434px) {
+  .game-result {
+    width: 200px;
+    height: 100px;
+    padding: 15px 5px;
+    -webkit-transform: translateY(-40px);
+            transform: translateY(-40px);
+  }
+  .game-result h1 {
+    font-size: 3rem;
+  }
+  .game-result h2 {
+    font-size: 1.5rem;
+  }
+}
+
 .options {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -430,13 +537,14 @@ div.scaledOut {
 }
 
 .options button {
+  position: relative;
   background-color: #3d2645;
   color: #f0eff4;
   border: 2px solid #3d2645;
   border-radius: 5px;
   font-size: 3rem;
   padding: 10px 25px;
-  margin: 0 10px;
+  margin: 0 10px 20px;
   cursor: pointer;
   -webkit-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
@@ -449,8 +557,19 @@ div.scaledOut {
   border-color: #da4167;
 }
 
-.options button:hover {
+.options button:hover:not(:disabled) {
   background-color: #da4167;
   border-color: #da4167;
+}
+
+.options button:disabled {
+  cursor: default;
+}
+
+@media screen and (max-width: 520px) {
+  .options button {
+    font-size: 2rem;
+    margin: 0 5px;
+  }
 }
 /*# sourceMappingURL=main.css.map */

@@ -2,14 +2,12 @@ $containerPadding: 20px;
 $transitionTimeUI: .5s;
 $transitionTimeForm: .3s;
 
-// color palette
 $black: #000000;
 $violet: #3d2645;
 $raspberry: #832161;
 $pink: #da4167;
 $white: #f0eff4;
 
-// basics
 $font: 'Poppins',
 sans-serif;
 
@@ -26,8 +24,11 @@ body {
     font-family: $font;
     font-size: 10px;
     height: 100vh;
-    overflow: hidden;
     background-color: $white;
+
+    @media screen and (max-width: 768px) {
+        font-size: 8px;
+    }
 }
 
 .container {
@@ -40,6 +41,19 @@ body {
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden;
+    z-index: 1;
+
+    @media screen and (max-width: 768px) {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    @media screen and (max-width: 520px) {
+        justify-content: space-between;
+    }
 }
 
 .scores {
@@ -50,6 +64,20 @@ body {
     font-size: 3rem;
     color: $white;
     transition: $transitionTimeUI;
+    text-align: center;
+
+    @media screen and (max-width: 1200px) {
+        justify-content: space-between;
+        padding: 0 20px;
+    }
+
+    @media screen and (max-width: 434px) {
+        font-size: 2rem;
+    }
+}
+
+.score {
+    padding: 20px 10px;
 }
 
 .score>span[class$="score"] {
@@ -72,19 +100,39 @@ header {
         position: absolute;
         width: 300px;
         top: 0;
-        transform: translateY(-60%) rotate(-15deg);
+        transform: translateY(-40%) rotate(-15deg);
+        z-index: 1;
+
+        @media screen and (max-width: 768px), (max-height: 900px) {
+            width: 250px;
+        }
+
+        @media screen and (max-width: 520px),
+        (max-height: 700px) {
+            width: 150px;
+        }
     }
 
     h1 {
         font-size: 4.5rem;
         color: $pink;
         text-shadow: 0 0 5px $violet;
+
+        @media screen and (max-width: 520px) {
+            font-size: 4rem;
+            line-height: .9;
+        }
     }
 
     h2 {
         font-size: 3.5rem;
         color: $white;
         transform: translate(40%, -20px);
+
+        @media screen and (max-width: 520px) {
+            font-size: 3rem;
+            transform: translate(0, 0);
+        }
     }
 }
 
@@ -114,7 +162,6 @@ div.scaledOut {
 .intro-content {
     position: relative;
     width: 100%;
-    min-width: 400px;
     height: 100px;
     overflow: hidden;
     transition: $transitionTimeUI;
@@ -206,8 +253,6 @@ div.scaledOut {
             font-size: 3.5rem;
         }
     }
-
-
 }
 
 .game-content {
@@ -218,6 +263,18 @@ div.scaledOut {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    .hand {
+        img {
+            @media screen and (max-width: 520px) {
+                width: 240px;
+            }
+
+            @media screen and (max-width: 380px) {
+                width: 210px;
+            }
+        }
+    }
 
     .player-hand {
         img {
@@ -305,19 +362,37 @@ div.scaledOut {
     box-shadow: 0 6px 8px rgba(0, 0, 0, .15);
 
     h1 {
-        // result
         font-size: 3.5rem;
         color: $white;
     }
 
     h2 {
-        // details
         font-size: 2rem;
         word-spacing: 1px;
         text-transform: capitalize;
 
         span {
             text-transform: none;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        position: absolute;
+        z-index: -1;
+    }
+
+    @media screen and (max-width: 434px) {
+        width: 200px;
+        height: 100px;
+        padding: 15px 5px;
+        transform: translateY(-40px);
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
         }
     }
 }
@@ -327,13 +402,14 @@ div.scaledOut {
     justify-content: center;
 
     button {
+        position: relative;
         background-color: $violet;
         color: $white;
         border: 2px solid $violet;
         border-radius: 5px;
         font-size: 3rem;
         padding: 10px 25px;
-        margin: 0 10px;
+        margin: 0 10px 20px;
         cursor: pointer;
         box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         transition: $transitionTimeForm;
@@ -343,9 +419,20 @@ div.scaledOut {
             border-color: $pink;
         }
 
-        &:hover {
+        &:hover:not(:disabled) {
             background-color: $pink;
             border-color: $pink;
+        }
+
+        &:disabled {
+            cursor: default;
+        }
+    }
+
+    @media screen and (max-width: 520px) {
+        button {
+            font-size: 2rem;
+            margin: 0 5px;
         }
     }
 }
