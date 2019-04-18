@@ -1,3 +1,12 @@
+/**
+ * 
+ * Rock, Paper and Scissors JS Game
+ * 2019
+ * Made by Łukasz Roman (https://github.com/lukaaspl)
+ * Feel free to use anything anywhere ;-)
+ * 
+ */
+
 class Game {
     active = false;
 
@@ -42,6 +51,7 @@ class Game {
         // set game state to active
         this.active = true;
 
+        // informations about picked hands and hands DOM nodes
         const hands = {
             user: {
                 option,
@@ -69,8 +79,8 @@ class Game {
         else if (gameResult === 'lose')
             resultToDisplay = `You lose!`;
 
-        // hands shaking animation
-        this.shakeHands(hands.user, hands.computer);
+        // while game is processing
+        this.processGame(hands.user, hands.computer);
 
         setTimeout(() => {
             detailsNode.innerHTML = `${hands.user.option} <span>vs.</span> ${hands.computer.option}`;
@@ -83,18 +93,28 @@ class Game {
         }, 2000);
     }
 
-    // shake hands animation and set propal hand image
-    shakeHands = (userHand, computerHand) => {
+    // game is processing and waiting for result
+    processGame = (userHand, computerHand) => {
         const hands = [userHand.node, computerHand.node];
+        const buttons = document.querySelectorAll('.options > button');
 
+        // lock buttons until previous round is finished
+        buttons.forEach(button => button.setAttribute('disabled', ''));
+
+        // shake hands animation
         hands.forEach((hand, index) => {
             hand.classList.add('shaked');
 
+            // remove animation class after it ends
             hand.addEventListener('animationend', () => {
                 hand.classList.remove('shaked');
 
+                // set hands images to the choosen
                 hands[0].src = `assets/${userHand.option}.png`;
                 hands[1].src = `assets/${computerHand.option}.png`;
+
+                // unlock buttons
+                buttons.forEach(button => button.removeAttribute('disabled'));
             });
         });
     }
