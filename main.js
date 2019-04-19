@@ -8,14 +8,21 @@
  */
 
 class Game {
-    active = false;
+    constructor() {
+        this.active = false;
+    }
 
     // set player name
-    setUsername = username => this.playerName = username;
+    setUsername(username) {
+        this.playerName = username;
+    }
 
-    isGameActive = () => this.gameActive;
+    // check if game was started
+    isGameActive() {
+        return this.gameActive;
+    }
 
-    start = () => {
+    start() {
         // set access to stats
         this.statistics = new Statistics();
 
@@ -39,7 +46,7 @@ class Game {
     }
 
     // draw computer choice
-    getComputerHand = () => {
+    getComputerHand() {
         const options = ['rock', 'paper', 'scissors'];
         const randomIndex = Math.floor(Math.random() * options.length);
 
@@ -47,7 +54,7 @@ class Game {
     }
 
     // when user picks a hand
-    pickHand = option => {
+    pickHand(option) {
         // set game state to active
         this.active = true;
 
@@ -94,7 +101,7 @@ class Game {
     }
 
     // game is processing and waiting for result
-    processGame = (userHand, computerHand) => {
+    processGame(userHand, computerHand) {
         const hands = [userHand.node, computerHand.node];
         const buttons = document.querySelectorAll('.options > button');
 
@@ -120,7 +127,7 @@ class Game {
     }
 
     // compare hands and get the game result
-    getResult = (userHand, computerHand) => {
+    getResult(userHand, computerHand) {
         const result = {
             draw: 'draw',
             win: 'win',
@@ -150,15 +157,22 @@ class Game {
 
 // operations on stats and game history
 class Statistics {
-    _userPoints = 0;
-    _computerPoints = 0;
+    constructor() {
+        this._userPoints = 0;
+        this._computerPoints = 0;
+    }
 
     // getters
-    getUserPoints = () => this._userPoints;
-    getComputerPoints = () => this._computerPoints;
+    getUserPoints() {
+        return this._userPoints;
+    }
+
+    getComputerPoints() {
+        return this._computerPoints;
+    }
 
     // add points and update view 
-    addPoint = pointFor => {
+    addPoint(pointFor) {
         pointFor = pointFor.toString().toLowerCase();
 
         if (pointFor === 'user') {
@@ -180,11 +194,6 @@ class Statistics {
 const introForm = document.querySelector('.intro form');
 const game = new Game();
 
-// start game as dev
-// const devGame = new Game();
-// devGame.setUsername('Dev')
-// devGame.start();
-
 introForm.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -197,7 +206,6 @@ introForm.addEventListener('submit', e => {
 const optionButtons = document.querySelectorAll('.options button');
 
 optionButtons.forEach(button => {
-    // console.log(button.dataset.option);
     button.addEventListener('click', game.pickHand
         .bind(this, button.dataset.option));
 });
