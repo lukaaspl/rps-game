@@ -207,5 +207,5 @@ const optionButtons = document.querySelectorAll('.options button');
 
 optionButtons.forEach(button => {
     button.addEventListener('click', game.pickHand
-        .bind(this, button.dataset.option));
+        .bind(game, button.dataset.option));
 });
